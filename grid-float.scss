@@ -1,0 +1,27 @@
+.grid-float {
+    .row {
+        display: block;
+    
+        &::before,
+        &::after {
+            content: " ";
+            display: table;
+            width: 100%;
+        }
+    
+        &::after {
+            clear: both;
+        }
+    }
+
+    .#{$grid-column-class-prefix} {
+        float: left;
+    }
+
+    //Make columns sizes
+    @for $i from 1 through $grid-columns {
+        .#{$grid-column-class-prefix}-#{$i} {
+            width: percentage($i/$grid-columns);
+        }
+    }
+}
