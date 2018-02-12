@@ -19,9 +19,9 @@
     }
 
     //Make columns sizes
-    @for $i from 1 through $grid-columns {
-        .#{$grid-column-class-prefix}-#{$i} {
-            width: percentage($i/$grid-columns);
+    @each $prefix, $size in $grid-columns {
+        .#{$grid-column-class-prefix}-#{$prefix} {
+            width: $size;
         }
     }
 }
